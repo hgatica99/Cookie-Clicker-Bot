@@ -17,6 +17,7 @@ menu_items = driver.find_elements(By.CSS_SELECTOR, "div#store b")
 
 item_list = [item.text for item in menu_items[:-1]]
 item_prices = []
+cps = None
 
 for item_a in item_list:
     item_split = item_a.split(" ")
@@ -40,7 +41,8 @@ while time.time() < five_minutes_ahead:
     print(f"Purchased: {menu_items[highest_index].text}")
     menu_items[highest_index].click()
     cps = driver.find_element(By.ID, "cps").text
-    print(cps)
+    
+print(cps)
 
 
 
